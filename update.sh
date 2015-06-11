@@ -2,7 +2,7 @@
 
 if [ $# -eq 0 ]
 then
-	echo "Please specify the android home path" > &2
+	echo "Please specify the android home path" >&2
 	exit 1
 fi
 
