@@ -10,7 +10,7 @@ ANDROID_SDK=$1/tools/android
 
 shift 1
 
-ARGS="-s --no-ui $#"
+ARGS="-s --no-ui $@"
 
 FILTERS="platform,tool,platform-tool,extra,add-on,source"
 
