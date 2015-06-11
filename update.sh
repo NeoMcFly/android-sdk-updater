@@ -6,7 +6,7 @@ then
 	exit 1
 fi
 
-ANDROID_SDK=$1
+ANDROID_SDK=$1/tools/android
 
 shift 1
 
