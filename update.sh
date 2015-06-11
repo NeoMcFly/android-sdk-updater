@@ -20,7 +20,7 @@ echo "Caching the update list..."
 echo "ok"
 
 # Look for the build-tools id
-BUILD_TOOLS_FILTER=$($ANDROID_SDK list sdk $ARGS | grep "Build-tools" | cut -d '-' -f 1)
+BUILD_TOOLS_FILTER=$($ANDROID_SDK list sdk $ARGS | grep "Build-tools" | head -n 1 | cut -d '-' -f 1)
 if [ -z "$BUILD_TOOLS_FILTER" ]
 then
   echo "Build-tools already exists"
