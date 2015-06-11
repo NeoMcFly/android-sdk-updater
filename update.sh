@@ -23,7 +23,7 @@ echo "ok"
 BUILD_TOOLS_FILTER=$($ANDROID_SDK list sdk $ARGS | grep "Build-tools" | head -n 1 | cut -d '-' -f 1)
 if [ -z "$BUILD_TOOLS_FILTER" ]
 then
-  echo "Build-tools already exists"
+  echo "Build-tools is already installed and up to date"
 else
   echo "Build-tools have to be updated '$BUILD_TOOLS_FILTER' "
   FILTERS="$BUILD_TOOLS_FILTER,$FILTERS "
