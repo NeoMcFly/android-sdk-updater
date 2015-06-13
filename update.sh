@@ -41,5 +41,5 @@ else
 fi
 
 # Update the rest
-update $ARGS -t $FILTERS
+update "$ARGS -t $FILTERS"
 
