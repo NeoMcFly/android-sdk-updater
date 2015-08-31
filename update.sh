@@ -16,8 +16,6 @@ FILTERS="platform,tool,platform-tool,extra,add-on,source"
 
 function update(){
 
-  echo "$ANDROID_SDK update sdk --no-ui $@"
-
   expect -c "
   set timeout -1   ;
   spawn $ANDROID_SDK update sdk --no-ui $@
@@ -39,5 +37,4 @@ else
 fi
 
 # Update the rest
-update "$ARGS -t $FILTERS"
-
+update "-t $FILTERS $ARGS"
