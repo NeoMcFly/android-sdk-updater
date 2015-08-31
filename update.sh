@@ -28,16 +28,14 @@ function update(){
   "
 }
 
-# Check for Build-tools availability 
-BUILD_TOOLS_FILTER=$($ANDROID_SDK --clear-cache list sdk | grep -i build-tools | head -n 1 | cut -d '-' -f 1)
+# Check for Build-tools availability without preview version nor Obsolete
+BUILD_TOOLS_FILTER=$($ANDROID_SDK --clear-cache list sdk --all $ARGS | grep -i build-tools | grep -v rc | grep -v Obsolete | head -n 1 | cut -d '-' -f 1)
 if [ -z "$BUILD_TOOLS_FILTER" ]
 then
   echo "Build-tools is already installed and up to date"
 else
-  # Look for the build-tools id
-  BUILD_TOOLS_FILTER=$($ANDROID_SDK list sdk --all | grep -i build-tools | grep -v rc | head -n 1 | cut -d '-' -f 1)  
   echo "Build-tools have to be updated '$BUILD_TOOLS_FILTER' "
-  update "--all -t $BUILD_TOOLS_FILTER"
+  update "--all -t $BUILD_TOOLS_FILTER $ARGS"
 fi
 
 # Update the rest
